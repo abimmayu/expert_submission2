@@ -3,16 +3,22 @@ import 'package:equatable/equatable.dart';
 
 import '../../domain/entities/tv_detail.dart';
 
-class TvDetailResponse extends Equatable {
-  TvDetailResponse({
+class TvDetailModel extends Equatable {
+  TvDetailModel({
+    required this.adult,
     required this.backdropPath,
+    required this.episodeRunTime,
     required this.firstAirDate,
     required this.genres,
     required this.homepage,
     required this.id,
+    required this.inProduction,
+    required this.lastAirDate,
     required this.name,
+    required this.nextEpisodeToAir,
     required this.numberOfEpisodes,
     required this.numberOfSeasons,
+    required this.originCountry,
     required this.originalLanguage,
     required this.originalName,
     required this.overview,
@@ -25,14 +31,20 @@ class TvDetailResponse extends Equatable {
     required this.voteCount,
   });
 
+  final bool adult;
   final String? backdropPath;
-  final String firstAirDate;
+  final List<int> episodeRunTime;
+  final DateTime firstAirDate;
   final List<GenreModel> genres;
   final String homepage;
   final int id;
+  final bool inProduction;
+  final DateTime lastAirDate;
   final String name;
+  final dynamic nextEpisodeToAir;
   final int numberOfEpisodes;
   final int numberOfSeasons;
+  final List<String> originCountry;
   final String originalLanguage;
   final String originalName;
   final String overview;
@@ -44,17 +56,22 @@ class TvDetailResponse extends Equatable {
   final double voteAverage;
   final int voteCount;
 
-  factory TvDetailResponse.fromJson(Map<String, dynamic> json) =>
-      TvDetailResponse(
+  factory TvDetailModel.fromJson(Map<String, dynamic> json) => TvDetailModel(
+        adult: json["adult"],
         backdropPath: json["backdrop_path"],
-        firstAirDate: json["first_air_date"],
+        episodeRunTime: List<int>.from(json["episode_run_time"].map((x) => x)),
+        firstAirDate: DateTime.parse(json["first_air_date"]),
         genres: List<GenreModel>.from(
             json["genres"].map((x) => GenreModel.fromJson(x))),
         homepage: json["homepage"],
         id: json["id"],
+        inProduction: json["in_production"],
+        lastAirDate: DateTime.parse(json["last_air_date"]),
         name: json["name"],
+        nextEpisodeToAir: json["next_episode_to_air"],
         numberOfEpisodes: json["number_of_episodes"],
         numberOfSeasons: json["number_of_seasons"],
+        originCountry: List<String>.from(json["origin_country"].map((x) => x)),
         originalLanguage: json["original_language"],
         originalName: json["original_name"],
         overview: json["overview"],
@@ -68,14 +85,22 @@ class TvDetailResponse extends Equatable {
       );
 
   Map<String, dynamic> toJson() => {
+        "adult": adult,
         "backdrop_path": backdropPath,
-        "first_air_date": firstAirDate,
+        "episode_run_time": List<dynamic>.from(episodeRunTime.map((x) => x)),
+        "first_air_date":
+            "${firstAirDate.year.toString().padLeft(4, '0')}-${firstAirDate.month.toString().padLeft(2, '0')}-${firstAirDate.day.toString().padLeft(2, '0')}",
         "genres": List<dynamic>.from(genres.map((x) => x.toJson())),
         "homepage": homepage,
         "id": id,
+        "in_production": inProduction,
+        "last_air_date":
+            "${lastAirDate.year.toString().padLeft(4, '0')}-${lastAirDate.month.toString().padLeft(2, '0')}-${lastAirDate.day.toString().padLeft(2, '0')}",
         "name": name,
+        "next_episode_to_air": nextEpisodeToAir,
         "number_of_episodes": numberOfEpisodes,
         "number_of_seasons": numberOfSeasons,
+        "origin_country": List<dynamic>.from(originCountry.map((x) => x)),
         "original_language": originalLanguage,
         "original_name": originalName,
         "overview": overview,
@@ -87,31 +112,51 @@ class TvDetailResponse extends Equatable {
         "vote_average": voteAverage,
         "vote_count": voteCount,
       };
+
   TvDetail toEntity() {
     return TvDetail(
-      backdropPath: this.backdropPath,
-      genres: this.genres.map((genre) => genre.toEntity()).toList(),
-      id: this.id,
-      originalName: this.originalName,
-      overview: this.overview,
-      posterPath: this.posterPath,
-      firstAirDate: this.firstAirDate,
-      name: this.name,
-      voteAverage: this.voteAverage,
-      voteCount: this.voteCount,
-    );
+        adult: this.adult,
+        backdropPath: this.backdropPath,
+        episodeRunTime: this.episodeRunTime,
+        firstAirDate: this.firstAirDate,
+        genres: this.genres.map((genre) => genre.toEntity()).toList(),
+        homepage: this.homepage,
+        id: this.id,
+        inProduction: this.inProduction,
+        lastAirDate: this.lastAirDate,
+        name: this.name,
+        nextEpisodeToAir: this.nextEpisodeToAir,
+        numberOfEpisodes: this.numberOfEpisodes,
+        numberOfSeasons: this.numberOfSeasons,
+        originalLanguage: this.originalLanguage,
+        originalName: this.originalName,
+        originCountry: this.originCountry,
+        overview: this.overview,
+        popularity: this.popularity,
+        posterPath: this.posterPath,
+        status: this.status,
+        tagline: this.tagline,
+        type: this.type,
+        voteAverage: this.voteAverage,
+        voteCount: this.voteCount);
   }
 
   @override
   List<Object?> get props => [
+        adult,
         backdropPath,
+        episodeRunTime,
         firstAirDate,
         genres,
         homepage,
         id,
+        inProduction,
+        lastAirDate,
         name,
+        nextEpisodeToAir,
         numberOfEpisodes,
         numberOfSeasons,
+        originCountry,
         originalLanguage,
         originalName,
         overview,

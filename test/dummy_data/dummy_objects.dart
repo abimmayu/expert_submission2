@@ -1,7 +1,10 @@
 import 'package:muse/data/models/movie_table.dart';
+import 'package:muse/data/models/tv_table.dart';
 import 'package:muse/domain/entities/genre.dart';
 import 'package:muse/domain/entities/movie.dart';
 import 'package:muse/domain/entities/movie_detail.dart';
+import 'package:muse/domain/entities/tv.dart';
+import 'package:muse/domain/entities/tv_detail.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -57,3 +60,61 @@ final testMovieMap = {
   'posterPath': 'posterPath',
   'title': 'title',
 };
+
+final testTv = Tv(
+    posterPath: "/jIhL6mlT7AblhbHJgEoiBIOUVl1.jpg",
+    popularity: 29.780826,
+    id: 1399,
+    backdropPath: "/mUkuc2wyV9dHLG0D0Loaw5pO2s8.jpg",
+    voteAverage: 7.91,
+    overview:
+        "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+    originCountry: ["US"],
+    genreIds: [10765, 10759, 18],
+    originalLanguage: "en",
+    voteCount: 1172,
+    name: "Game of Thrones",
+    originalName: "Game of Thrones");
+
+final testTvList = [testTv];
+
+final testTvDetail = TvDetail(
+  adult: false,
+  backdropPath: 'backdropPath',
+  episodeRunTime: [60],
+  firstAirDate: DateTime(2011 - 04 - 17),
+  genres: [Genre(id: 1, name: 'Action')],
+  homepage: 'homepage',
+  id: 1,
+  inProduction: false,
+  lastAirDate: DateTime(2019 - 05 - 19),
+  name: 'name',
+  nextEpisodeToAir: 1,
+  numberOfEpisodes: 10,
+  numberOfSeasons: 1,
+  originCountry: ["US"],
+  originalLanguage: 'originalLanguage',
+  originalName: 'originalName',
+  overview: 'overview',
+  popularity: 1,
+  posterPath: 'posterPath',
+  status: 'status',
+  tagline: 'tagline',
+  type: 'type',
+  voteAverage: 1,
+  voteCount: 1,
+);
+
+final testTvTable = TvTable(
+  id: 1,
+  name: 'name',
+  posterPath: 'posterPath',
+  overview: 'overview',
+);
+
+final testWatchlistTv = Tv.watchlist(
+  id: 1,
+  name: 'name',
+  posterPath: 'posterPath',
+  overview: 'overview',
+);

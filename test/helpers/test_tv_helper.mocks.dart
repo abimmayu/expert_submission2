@@ -7,6 +7,8 @@ import 'dart:convert' as _i16;
 import 'dart:typed_data' as _i17;
 
 import 'package:dartz/dartz.dart' as _i2;
+import 'package:http/http.dart' as _i4;
+import 'package:mockito/mockito.dart' as _i1;
 import 'package:muse/common/failure.dart' as _i7;
 import 'package:muse/data/datasources/db/database_helper.dart' as _i14;
 import 'package:muse/data/datasources/tv_local_datasource.dart' as _i12;
@@ -17,8 +19,6 @@ import 'package:muse/data/models/tv_table.dart' as _i13;
 import 'package:muse/domain/entities/tv.dart' as _i8;
 import 'package:muse/domain/entities/tv_detail.dart' as _i9;
 import 'package:muse/domain/repositories/tv_repository.dart' as _i5;
-import 'package:http/http.dart' as _i4;
-import 'package:mockito/mockito.dart' as _i1;
 import 'package:sqflite/sqflite.dart' as _i15;
 
 // ignore_for_file: type=lint
@@ -33,8 +33,7 @@ import 'package:sqflite/sqflite.dart' as _i15;
 
 class _FakeEither_0<L, R> extends _i1.Fake implements _i2.Either<L, R> {}
 
-class _FakeTvDetailResponse_1 extends _i1.Fake implements _i3.TvDetailResponse {
-}
+class _FakeTvDetailModel_1 extends _i1.Fake implements _i3.TvDetailModel {}
 
 class _FakeResponse_2 extends _i1.Fake implements _i4.Response {}
 
@@ -137,11 +136,10 @@ class MockTelevisionRemoteDataSource extends _i1.Mock
               returnValue: Future<List<_i11.TvModel>>.value(<_i11.TvModel>[]))
           as _i6.Future<List<_i11.TvModel>>);
   @override
-  _i6.Future<_i3.TvDetailResponse> getTvDetail(int? id) =>
-      (super.noSuchMethod(Invocation.method(#getTvDetail, [id]),
-              returnValue:
-                  Future<_i3.TvDetailResponse>.value(_FakeTvDetailResponse_1()))
-          as _i6.Future<_i3.TvDetailResponse>);
+  _i6.Future<_i3.TvDetailModel> getTvDetail(int? id) => (super.noSuchMethod(
+          Invocation.method(#getTvDetail, [id]),
+          returnValue: Future<_i3.TvDetailModel>.value(_FakeTvDetailModel_1()))
+      as _i6.Future<_i3.TvDetailModel>);
   @override
   _i6.Future<List<_i11.TvModel>> getTvRecommendations(int? id) =>
       (super.noSuchMethod(Invocation.method(#getTvRecommendations, [id]),

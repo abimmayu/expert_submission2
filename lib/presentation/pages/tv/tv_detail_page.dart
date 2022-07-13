@@ -154,7 +154,7 @@ class DetailContent extends StatelessWidget {
                               _showGenres(tv.genres),
                             ),
                             Text(
-                              (tv.firstAirDate),
+                              (tv.firstAirDate).toString(),
                             ),
                             Row(
                               children: [

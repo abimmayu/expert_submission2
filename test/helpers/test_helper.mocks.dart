@@ -7,6 +7,8 @@ import 'dart:convert' as _i16;
 import 'dart:typed_data' as _i17;
 
 import 'package:dartz/dartz.dart' as _i2;
+import 'package:http/http.dart' as _i4;
+import 'package:mockito/mockito.dart' as _i1;
 import 'package:muse/common/failure.dart' as _i7;
 import 'package:muse/data/datasources/db/database_helper.dart' as _i14;
 import 'package:muse/data/datasources/movie_local_data_source.dart' as _i12;
@@ -17,8 +19,6 @@ import 'package:muse/data/models/movie_table.dart' as _i13;
 import 'package:muse/domain/entities/movie.dart' as _i8;
 import 'package:muse/domain/entities/movie_detail.dart' as _i9;
 import 'package:muse/domain/repositories/movie_repository.dart' as _i5;
-import 'package:http/http.dart' as _i4;
-import 'package:mockito/mockito.dart' as _i1;
 import 'package:sqflite/sqflite.dart' as _i15;
 
 // ignore_for_file: type=lint

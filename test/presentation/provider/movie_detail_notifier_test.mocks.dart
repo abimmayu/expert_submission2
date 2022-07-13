@@ -5,6 +5,7 @@
 import 'dart:async' as _i5;
 
 import 'package:dartz/dartz.dart' as _i3;
+import 'package:mockito/mockito.dart' as _i1;
 import 'package:muse/common/failure.dart' as _i6;
 import 'package:muse/domain/entities/movie.dart' as _i9;
 import 'package:muse/domain/entities/movie_detail.dart' as _i7;
@@ -14,7 +15,6 @@ import 'package:muse/domain/usecases/get_movie_recommendations.dart' as _i8;
 import 'package:muse/domain/usecases/get_watchlist_status.dart' as _i10;
 import 'package:muse/domain/usecases/remove_watchlist.dart' as _i12;
 import 'package:muse/domain/usecases/save_watchlist.dart' as _i11;
-import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
