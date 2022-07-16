@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:muse/domain/usecases/get_watchlist_movies.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:movies/movies.dart';
 
-import '../../dummy_data/dummy_objects.dart';
+import '../../dummy_object/dummy_movies_object.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {

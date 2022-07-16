@@ -45,7 +45,7 @@ class AboutPage extends StatelessWidget {
           SafeArea(
             child: IconButton(
               onPressed: () => Navigator.pop(context),
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
             ),
           )
         ],

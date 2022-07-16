@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:muse/domain/entities/movie.dart';
-import 'package:muse/domain/usecases/get_top_rated_movies.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:movies/movies.dart';
 
 import '../../helpers/test_helper.mocks.dart';
 

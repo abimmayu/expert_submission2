@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/presentations/widget/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/presentation/bloc/watchlist_movie/watchlist_movies_bloc.dart';

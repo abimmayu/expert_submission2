@@ -101,7 +101,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
             onPressed: () {
               Navigator.pushNamed(context, SearchPage.routeName);
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           )
         ],
       ),
