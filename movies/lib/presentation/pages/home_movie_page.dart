@@ -13,7 +13,7 @@ import 'package:movies/presentation/pages/movie_detail_page.dart';
 import 'package:movies/presentation/pages/popular_movies_page.dart';
 import 'package:movies/presentation/pages/top_rated_movies_page.dart';
 import 'package:movies/presentation/pages/watchlist_movies_page.dart';
-import 'package:search/presentation/search.dart';
+import 'package:search/search.dart';
 import 'package:television/presentation/pages/television_home_page.dart';
 import 'package:television/presentation/pages/television_watchlist_page.dart';
 
