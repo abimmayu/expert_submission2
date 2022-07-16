@@ -1,9 +1,9 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
+import 'package:core/common/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movies/movies.dart';
+import 'package:movies/presentation/bloc/detail_movie/detail_movie_bloc.dart';
 
 import '../../dummy_object/dummy_movies_object.dart';
 import '../../helpers/test_helper.mocks.dart';

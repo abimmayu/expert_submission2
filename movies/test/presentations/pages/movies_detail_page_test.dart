@@ -85,6 +85,6 @@ void main() {
     expect(find.text('Watchlist'), findsOneWidget);
     expect(find.text('Overview'), findsOneWidget);
     expect(find.text('Recommendations'), findsOneWidget);
-    expect(find.byKey(const Key('movie detail content')), findsOneWidget);
+    expect(find.byKey(const Key('movies details content')), findsOneWidget);
   });
 }

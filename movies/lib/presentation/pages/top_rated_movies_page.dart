@@ -24,6 +24,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('Top rated movie page'),
       appBar: AppBar(
         title: const Text('Top Rated Movies'),
       ),

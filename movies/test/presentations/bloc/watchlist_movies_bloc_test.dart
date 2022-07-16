@@ -1,36 +1,33 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
+import 'package:core/common/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movies/movies.dart';
+import 'package:movies/presentation/bloc/watchlist_movie/watchlist_movies_bloc.dart';
 
 import '../../dummy_object/dummy_movies_object.dart';
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {
-  late WatchlistMoviesBloc watchlistMovieBloc;
   late MockGetWatchlistMovies mockGetWatchlistMovies;
   late MockGetWatchListStatus mockGetWatchListStatus;
   late MockSaveWatchlist mockSaveWatchlist;
   late MockRemoveWatchlist mockRemoveWatchlist;
+  late WatchlistMoviesBloc movieWatchlistBloc;
+
+  const testMovieId = 1;
 
   setUp(() {
     mockGetWatchlistMovies = MockGetWatchlistMovies();
     mockGetWatchListStatus = MockGetWatchListStatus();
     mockSaveWatchlist = MockSaveWatchlist();
     mockRemoveWatchlist = MockRemoveWatchlist();
-    watchlistMovieBloc = WatchlistMoviesBloc(
-      getWatchlistMovies: mockGetWatchlistMovies,
-      getWatchListStatus: mockGetWatchListStatus,
-      removeWatchlist: mockRemoveWatchlist,
-      saveWatchlist: mockSaveWatchlist,
-    );
+    movieWatchlistBloc = WatchlistMoviesBloc(mockSaveWatchlist,
+        mockRemoveWatchlist, mockGetWatchlistMovies, mockGetWatchListStatus);
   });
 
-  const testMovieId = 1;
   test('initial state in watchlist movies should be empty', () {
-    expect(watchlistMovieBloc.state, WatchlistMoviesEmpty());
+    expect(movieWatchlistBloc.state, WatchlistMoviesEmpty());
   });
 
   blocTest<WatchlistMoviesBloc, WatchlistMoviesState>(
@@ -38,7 +35,7 @@ void main() {
       build: () {
         when(mockGetWatchlistMovies.execute())
             .thenAnswer((_) async => Right(testWatchlistMovieList));
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) async => bloc.add(GetListEvent()),
       expect: () => [
@@ -55,7 +52,7 @@ void main() {
       build: () {
         when(mockGetWatchlistMovies.execute()).thenAnswer(
             (_) async => const Left(ServerFailure('Server is Failure')));
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) async => bloc.add(GetListEvent()),
       expect: () => [
@@ -72,7 +69,7 @@ void main() {
       build: () {
         when(mockGetWatchListStatus.execute(testMovieId))
             .thenAnswer((_) async => true);
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) async => bloc.add(const GetStatusMovieEvent(testMovieId)),
       expect: () => [
@@ -89,7 +86,7 @@ void main() {
       build: () {
         when(mockGetWatchListStatus.execute(testMovieId))
             .thenAnswer((_) async => false);
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) => bloc.add(const GetStatusMovieEvent(testMovieId)),
       expect: () => [
@@ -106,7 +103,7 @@ void main() {
       build: () {
         when(mockSaveWatchlist.execute(testMovieDetail))
             .thenAnswer((_) async => const Right('Success'));
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) => bloc.add(const AddItemMovieEvent(testMovieDetail)),
       expect: () => [
@@ -122,7 +119,7 @@ void main() {
       build: () {
         when(mockSaveWatchlist.execute(testMovieDetail)).thenAnswer(
             (_) async => const Left(DatabaseFailure('add data Failed')));
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) => bloc.add(const AddItemMovieEvent(testMovieDetail)),
       expect: () => [
@@ -138,7 +135,7 @@ void main() {
       build: () {
         when(mockRemoveWatchlist.execute(testMovieDetail))
             .thenAnswer((_) async => const Right('Remove Data Success'));
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) => bloc.add(const RemoveItemMovieEvent(testMovieDetail)),
       expect: () => [
@@ -154,7 +151,7 @@ void main() {
       build: () {
         when(mockRemoveWatchlist.execute(testMovieDetail)).thenAnswer(
             (_) async => const Left(DatabaseFailure('Remove Data Failed')));
-        return watchlistMovieBloc;
+        return movieWatchlistBloc;
       },
       act: (bloc) => bloc.add(const RemoveItemMovieEvent(testMovieDetail)),
       expect: () => [

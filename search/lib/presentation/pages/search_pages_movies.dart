@@ -12,6 +12,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('movie search page'),
       appBar: AppBar(
         title: const Text('Search'),
       ),
@@ -55,6 +56,11 @@ class SearchPage extends StatelessWidget {
                       },
                       itemCount: result.length,
                     ),
+                  );
+                } else if (state is SearchMoviesError) {
+                  return const Center(
+                    child: Text('Pencarian Gagal, harap Coba Lagi',
+                        key: Key('error_message')),
                   );
                 } else {
                   return Expanded(

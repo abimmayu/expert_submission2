@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:movies/movies.dart';
+import 'package:movies/data/model/movie_detail_model.dart';
 
 void main() {
   const movieDetailModelTest = MovieDetailResponse(

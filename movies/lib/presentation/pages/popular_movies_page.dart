@@ -24,6 +24,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('Popular movie page'),
       appBar: AppBar(
         title: const Text('Popular Movies'),
       ),

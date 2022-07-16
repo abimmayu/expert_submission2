@@ -46,10 +46,10 @@ void init() {
     () => TopRatedsTvsBloc(locator()),
   );
   locator.registerFactory(() => WatchlistMoviesBloc(
-        getWatchlistMovies: locator(),
-        getWatchListStatus: locator(),
-        saveWatchlist: locator(),
-        removeWatchlist: locator(),
+        SaveWatchlist(locator()),
+        RemoveWatchlist(locator()),
+        GetWatchlistMovies(locator()),
+        GetWatchListStatus(locator()),
       ));
   locator.registerFactory(() => WatchlistTvsBloc(
         getWatchlistTv: locator(),

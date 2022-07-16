@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:movies/movies.dart';
+import 'package:movies/data/model/movie_model.dart';
+import 'package:movies/domain/entities/movie.dart';
 
 void main() {
   // ignore: prefer_const_constructors

@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:movies/movies.dart';
+import 'package:movies/data/model/movie_model.dart';
+import 'package:movies/data/model/movie_response.dart';
 
 import '../../json_reader.dart';
 

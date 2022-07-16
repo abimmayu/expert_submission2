@@ -1,10 +1,15 @@
 import 'dart:io';
 
-import 'package:core/core.dart';
+import 'package:core/common/utils/exception.dart';
+import 'package:core/common/utils/failure.dart';
+import 'package:core/data/model/model_genre.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movies/movies.dart';
+import 'package:movies/data/model/movie_detail_model.dart';
+import 'package:movies/data/model/movie_model.dart';
+import 'package:movies/data/repository/movie_repository_impl.dart';
+import 'package:movies/domain/entities/movie.dart';
 
 import '../../dummy_object/dummy_movies_object.dart';
 import '../../helpers/test_helper.mocks.dart';

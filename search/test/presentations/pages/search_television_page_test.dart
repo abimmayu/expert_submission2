@@ -74,7 +74,7 @@ void main() {
     expect(find.byType(AppBar), findsOneWidget);
     expect(find.byType(ListView), findsOneWidget);
     expect(find.byType(TvCard), findsOneWidget);
-    expect(find.byKey(const Key('Tv search page')), findsOneWidget);
+    expect(find.byKey(const Key('Television Search Page')), findsOneWidget);
   });
 
   testWidgets('should display text with message when error',

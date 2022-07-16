@@ -39,6 +39,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     RecommendMoviesState movieRecommendations =
         context.watch<RecommendMoviesBloc>().state;
     return Scaffold(
+      key: const Key('movies details content'),
       body: BlocListener<WatchlistMoviesBloc, WatchlistMoviesState>(
         listener: (_, state) {
           if (state is MovieWatchlistSuccess) {

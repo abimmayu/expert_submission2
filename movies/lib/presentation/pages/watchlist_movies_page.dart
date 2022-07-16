@@ -36,6 +36,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('watchlist movie page'),
       appBar: AppBar(
         title: const Text('Watchlist Movies'),
       ),

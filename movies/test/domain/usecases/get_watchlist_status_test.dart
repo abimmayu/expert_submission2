@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movies/movies.dart';
+import 'package:movies/movies.dart' show GetWatchListStatus;
 
 import '../../helpers/test_helper.mocks.dart';
 
