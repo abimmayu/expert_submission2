@@ -1,9 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
+import 'package:core/common/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:television/television.dart';
+import 'package:television/domain/entities/television.dart';
+import 'package:television/presentation/bloc/television_recommend/television_recommend_bloc.dart';
 
 import '../../helpers/test_television_helpers.mocks.dart';
 

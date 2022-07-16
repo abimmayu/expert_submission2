@@ -36,6 +36,7 @@ class _TelevisionDetailPageState extends State<TelevisionDetailPage> {
     RecommendTvsState tvRecommendations =
         context.watch<RecommendTvsBloc>().state;
     return Scaffold(
+      key: const Key('tv detail content'),
       body: BlocListener<WatchlistTvsBloc, WatchlistTvsState>(
         listener: (_, state) {
           if (state is WatchlistTvsSuccess) {

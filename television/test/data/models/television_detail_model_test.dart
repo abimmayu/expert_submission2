@@ -1,6 +1,6 @@
-import 'package:core/core.dart';
+import 'package:core/data/model/model_genre.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:television/television.dart';
+import 'package:television/data/models/television_model_detail.dart';
 
 void main() {
   const tvDetailModelTest = TvDetailResponse(

@@ -1,9 +1,9 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/core.dart';
+import 'package:core/common/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:television/television.dart';
+import 'package:television/presentation/bloc/television_watchlist/television_watchlist_bloc.dart';
 
 import '../../dummy_object/dummy_tv_object.dart';
 import '../../helpers/test_television_helpers.mocks.dart';
@@ -74,8 +74,7 @@ void main() {
         return watchlistTvBloc;
       },
       act: (bloc) => bloc.add(GetStatusTvsEvent(tvDetailTest.id)),
-      expect: () =>
-          [WatchlistTvsLoading(), const WatchlistTvsStatusLoaded(true)],
+      expect: () => [const WatchlistTvsStatusLoaded(true)],
       verify: (bloc) {
         verify(mockGetWatchlistTvStatus.execute(tvDetailTest.id));
         return GetStatusTvsEvent(tvDetailTest.id).props;
@@ -91,7 +90,6 @@ void main() {
         },
         act: (bloc) => bloc.add(GetStatusTvsEvent(tvDetailTest.id)),
         expect: () => <WatchlistTvsState>[
-              WatchlistTvsLoading(),
               const WatchlistTvsStatusLoaded(false),
             ],
         verify: (bloc) {

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:television/television.dart';
+import 'package:television/television.dart' show GetWatchListStatusTv;
 
 import '../../helpers/test_television_helpers.mocks.dart';
 

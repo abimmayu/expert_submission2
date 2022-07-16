@@ -1,10 +1,12 @@
 import 'dart:convert';
 
-import 'package:core/core.dart';
+import 'package:core/common/utils/exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:television/television.dart';
 import 'package:http/http.dart' as http;
+import 'package:television/data/datasources/television_remote_data_source.dart';
+import 'package:television/data/models/television_model_detail.dart';
+import 'package:television/data/models/television_response.dart';
 
 import '../../helpers/test_television_helpers.mocks.dart';
 import '../../json_reader.dart';
@@ -124,13 +126,13 @@ void main() {
   group('get the tv detail', () {
     const tId = 1;
     final tTvDetail = TvDetailResponse.fromJson(
-        json.decode(readJson('dummy_object/tv_detail.json')));
+        json.decode(readJson('dummy_object/detail_tv.json')));
 
     test('Return if movie detail when the response code is 200', () async {
       // arrange
       when(mockHttpClient.get(Uri.parse('$baseUrl/tv/$tId?$apiKey')))
           .thenAnswer((_) async =>
-              http.Response(readJson('dummy_object/tv_detail.json'), 200));
+              http.Response(readJson('dummy_object/detail_tv.json'), 200));
 
       // act
       final result = await dataSourcetv.getTvDetail(tId);
@@ -155,7 +157,7 @@ void main() {
 
   group('get the tv recommendations', () {
     final tTvList = TvResponse.fromJson(
-            json.decode(readJson('dummy_object/tv_recommendations.json')))
+            json.decode(readJson('dummy_object/recommendations_tv.json')))
         .tvList;
 
     const tId = 1;
@@ -165,7 +167,7 @@ void main() {
       when(mockHttpClient
               .get(Uri.parse('$baseUrl/tv/$tId/recommendations?$apiKey')))
           .thenAnswer((_) async => http.Response(
-              readJson('dummy_object/tv_recommendations.json'), 200));
+              readJson('dummy_object/recommendations_tv.json'), 200));
 
       // act
       final result = await dataSourcetv.getTvRecommendations(tId);
@@ -191,7 +193,7 @@ void main() {
 
   group('search the tv', () {
     final tSearchResult = TvResponse.fromJson(
-            json.decode(readJson('dummy_object/search_got_tv.json')))
+            json.decode(readJson('dummy_object/search_spy_x_family_tv.json')))
         .tvList;
 
     const tQuery = 'Spiderman';
@@ -200,8 +202,8 @@ void main() {
       // arrange
       when(mockHttpClient
               .get(Uri.parse('$baseUrl/search/tv?$apiKey&query=$tQuery')))
-          .thenAnswer((_) async =>
-              http.Response(readJson('dummy_object/search_got_tv.json'), 200));
+          .thenAnswer((_) async => http.Response(
+              readJson('dummy_object/search_spy_x_family_tv.json'), 200));
 
       // act
       final result = await dataSourcetv.searchTv(tQuery);

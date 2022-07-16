@@ -24,6 +24,7 @@ class _TopRatedTelevisionPageState extends State<TopRatedTelevisionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('Top rated TV series page'),
       appBar: AppBar(
         title: const Text('Top Rated Tv'),
       ),

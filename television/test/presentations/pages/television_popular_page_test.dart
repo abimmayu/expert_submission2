@@ -1,9 +1,10 @@
-import 'package:core/core.dart';
+import 'package:core/presentations/widget/tv_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:television/television.dart';
+import 'package:television/presentation/bloc/television_popular/television_popular_bloc.dart';
+import 'package:television/presentation/pages/television_popular_page.dart';
 
 import '../../dummy_object/dummy_tv_object.dart';
 import '../../helpers/test_television_helpers.dart';

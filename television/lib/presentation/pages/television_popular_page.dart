@@ -24,6 +24,7 @@ class _PopularTelevisionPageState extends State<PopularTelevisionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('Popular TV series page'),
       appBar: AppBar(
         title: const Text('Popular Tv'),
       ),

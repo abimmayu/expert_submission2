@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:television/television.dart';
+import 'package:television/presentation/bloc/television_on_air/television_on_air_bloc.dart';
+import 'package:television/presentation/bloc/television_popular/television_popular_bloc.dart';
+import 'package:television/presentation/bloc/television_top_rated/television_top_rated_bloc.dart';
+import 'package:television/presentation/pages/television_home_page.dart';
 
 import '../../dummy_object/dummy_tv_object.dart';
 import '../../helpers/test_television_helpers.dart';

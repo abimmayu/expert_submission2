@@ -1,7 +1,7 @@
-import 'package:core/core.dart';
+import 'package:core/common/utils/exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:television/television.dart';
+import 'package:television/data/datasources/television_local_data_source.dart';
 
 import '../../dummy_object/dummy_tv_object.dart';
 import '../../helpers/test_television_helpers.mocks.dart';

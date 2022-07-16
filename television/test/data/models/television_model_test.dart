@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:television/television.dart';
+import 'package:television/data/models/television_model.dart';
+import 'package:television/domain/entities/television.dart';
 
 void main() {
   // ignore: prefer_const_constructors

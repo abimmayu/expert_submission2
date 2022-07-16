@@ -38,6 +38,7 @@ class _WatchlistTelevisionPageState extends State<WatchlistTelevisionPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key('watchlist tv page'),
       appBar: AppBar(
         title: const Text('Watchlist TV'),
       ),
