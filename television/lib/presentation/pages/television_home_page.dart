@@ -93,7 +93,7 @@ class _HomeTelevisionPageState extends State<HomeTelevisionPage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text('Ditonton'),
+        title: const Text('Muse Asia'),
         actions: [
           IconButton(
             onPressed: () {

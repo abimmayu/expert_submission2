@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "15351077737",
+    "project_id": "muse-150f3",
+    "storage_bucket": "muse-150f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15351077737:android:479aad30c47959b9e1fbf8",
+        "android_client_info": {
+          "package_name": "com.dicoding.muse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15351077737-s4cmjq7v63p5gdrj8e5fu1e36hdk0tpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiolA5rqIDG3aD6ggJ8QEwOcNIzaRGMuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15351077737-s4cmjq7v63p5gdrj8e5fu1e36hdk0tpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

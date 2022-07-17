@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:about/about_page.dart';
 import 'package:core/common/utils/constants.dart';
 import 'package:core/styles/text_styles.dart';
@@ -95,14 +95,18 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text('Ditonton'),
+        title: const Text('Muse Asia'),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, SearchPage.routeName);
             },
             icon: const Icon(Icons.search),
-          )
+          ),
+          IconButton(
+            onPressed: () => FirebaseCrashlytics.instance.crash(),
+            icon: const Icon(Icons.dangerous),
+          ),
         ],
       ),
       body: Padding(
