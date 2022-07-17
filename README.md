@@ -6,5 +6,4 @@ Repository ini merupakan projrct untuk submission kedua pada kelas Flutter Exper
 
 ## Code Magic Passed
 
-
-https://api.codemagic.io/apps/62d1b239b2128b9186199f04/62d1b239b2128b9186199f03/status_badge.svg
+[![Codemagic build status](https://api.codemagic.io/apps/62d1b239b2128b9186199f04/62d1b239b2128b9186199f03/status_badge.svg)](https://codemagic.io/apps/62d1b239b2128b9186199f04/62d1b239b2128b9186199f03/latest_build)
