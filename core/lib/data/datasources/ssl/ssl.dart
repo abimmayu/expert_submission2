@@ -11,6 +11,7 @@ class SslPinnings {
       _clientInstance ??= await createLEClient();
 
   static http.Client? _clientInstance;
+
   static http.Client get client => _clientInstance ?? http.Client();
 
   static Future<void> init() async {
@@ -21,6 +22,7 @@ class SslPinnings {
     bool isTestMode = false,
   }) async {
     SecurityContext context = SecurityContext(withTrustedRoots: false);
+
     try {
       List<int> bytes = [];
 
@@ -32,10 +34,11 @@ class SslPinnings {
             .asUint8List();
       }
       context.setTrustedCertificatesBytes(bytes);
+      log('createHttpClient() - certified has been added!');
     } on TlsException catch (e) {
       if (e.osError?.message != null &&
           e.osError!.message.contains('Certificate already in hash table')) {
-        log('createHttpClient() - certificate already trusted.');
+        log('createHttpClient() - The Certificated is already Trusted! Skipping load');
       } else {
         log('createHttpClient().setTrustedCertificateBytes EXCEPTION: $e');
         rethrow;
