@@ -94,16 +94,19 @@ void main() {
         'should return connection failure when the device is not connected to internet',
         () async {
       // arrange
-      when(mockTvRemoteDataSource.getNowPlayingTv())
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockTvRemoteDataSource.getNowPlayingTv()).thenThrow(
+          const SocketException('Failed to connect to the networks'));
+
       // act
       final result = await tvRepository.getNowPlayingTv();
+
       // assert
       verify(mockTvRemoteDataSource.getNowPlayingTv());
+
       expect(
           result,
           equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))));
+              ConnectionFailure('Failed to connect to the networks'))));
     });
   });
 
@@ -135,13 +138,15 @@ void main() {
         'should return connection failure when device is not connected to the internet',
         () async {
       // arrange
-      when(mockTvRemoteDataSource.getPopularTv())
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockTvRemoteDataSource.getPopularTv()).thenThrow(
+          const SocketException('Failed to connect to the networks'));
+
       // act
       final result = await tvRepository.getPopularTv();
+
       // assert
       expect(result,
-          const Left(ConnectionFailure('Failed to connect to the network')));
+          const Left(ConnectionFailure('Failed to connect to the networks')));
     });
   });
 
@@ -172,13 +177,13 @@ void main() {
         'should return ConnectionFailure when device is not connected to the internet',
         () async {
       // arrange
-      when(mockTvRemoteDataSource.getTopRatedTv())
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockTvRemoteDataSource.getTopRatedTv()).thenThrow(
+          const SocketException('Failed to connect to the networks'));
       // act
       final result = await tvRepository.getTopRatedTv();
       // assert
       expect(result,
-          const Left(ConnectionFailure('Failed to connect to the network')));
+          const Left(ConnectionFailure('Failed to connect to the networks')));
     });
   });
 
@@ -236,8 +241,8 @@ void main() {
         'should return connection failure when the device is not connected to internet',
         () async {
       // arrange
-      when(mockTvRemoteDataSource.getTvDetail(idTest))
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockTvRemoteDataSource.getTvDetail(idTest)).thenThrow(
+          const SocketException('Failed to connect to the networks'));
       // act
       final result = await tvRepository.getTvDetail(idTest);
       // assert
@@ -245,7 +250,7 @@ void main() {
       expect(
           result,
           equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))));
+              ConnectionFailure('Failed to connect to the networks'))));
     });
   });
 
@@ -283,8 +288,8 @@ void main() {
         'should return connection failure when the device is not connected to the internet',
         () async {
       // arrange
-      when(mockTvRemoteDataSource.getTvRecommendations(idTest))
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockTvRemoteDataSource.getTvRecommendations(idTest)).thenThrow(
+          const SocketException('Failed to connect to the networks'));
       // act
       final result = await tvRepository.getTvRecommendations(idTest);
       // assert
@@ -292,7 +297,7 @@ void main() {
       expect(
           result,
           equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))));
+              ConnectionFailure('Failed to connect to the networks'))));
     });
   });
 
@@ -332,7 +337,7 @@ void main() {
       final result = await tvRepository.searchTv(queryTest);
       // assert
       expect(result,
-          const Left(ConnectionFailure('Failed to connect to the network')));
+          const Left(ConnectionFailure('Failed to connect to the networks')));
     });
   });
 

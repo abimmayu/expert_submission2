@@ -98,16 +98,19 @@ void main() {
         'should return connection failure when the device is not connected to internet',
         () async {
       // arrange
-      when(mockRemoteDataSource.getNowPlayingMovies())
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockRemoteDataSource.getNowPlayingMovies()).thenThrow(
+          const SocketException('Failed to connect to the networks'));
+
       // act
       final result = await repository.getNowPlayingMovies();
+
       // assert
       verify(mockRemoteDataSource.getNowPlayingMovies());
+
       expect(
           result,
           equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))));
+              ConnectionFailure('Failed to connect to the networks'))));
     });
   });
 
@@ -140,13 +143,15 @@ void main() {
         'should return connection failure when device is not connected to the internet',
         () async {
       // arrange
-      when(mockRemoteDataSource.getPopularMovies())
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockRemoteDataSource.getPopularMovies()).thenThrow(
+          const SocketException('Failed to connect to the networks'));
+
       // act
       final result = await repository.getPopularMovies();
+
       // assert
       expect(result,
-          const Left(ConnectionFailure('Failed to connect to the network')));
+          const Left(ConnectionFailure('Failed to connect to the networks')));
     });
   });
 
@@ -178,20 +183,21 @@ void main() {
         'should return ConnectionFailure when device is not connected to the internet',
         () async {
       // arrange
-      when(mockRemoteDataSource.getTopRatedMovies())
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockRemoteDataSource.getTopRatedMovies()).thenThrow(
+          const SocketException('Failed to connect to the networks'));
+
       // act
       final result = await repository.getTopRatedMovies();
+
       // assert
       expect(result,
-          const Left(ConnectionFailure('Failed to connect to the network')));
+          const Left(ConnectionFailure('Failed to connect to the networks')));
     });
   });
 
   group('Get Movie Detail', () {
     const tId = 1;
-    // ignore: unnecessary_const
-    const tMovieResponse = const MovieDetailResponse(
+    const tMovieResponse = MovieDetailResponse(
       adult: false,
       backdropPath: 'backdropPath',
       budget: 100,
@@ -245,8 +251,8 @@ void main() {
         'should return connection failure when the device is not connected to internet',
         () async {
       // arrange
-      when(mockRemoteDataSource.getMovieDetail(tId))
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockRemoteDataSource.getMovieDetail(tId)).thenThrow(
+          const SocketException('Failed to connect to the networks'));
       // act
       final result = await repository.getMovieDetail(tId);
       // assert
@@ -254,7 +260,7 @@ void main() {
       expect(
           result,
           equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))));
+              ConnectionFailure('Failed to connect to the networks'))));
     });
   });
 
@@ -293,16 +299,17 @@ void main() {
         'should return connection failure when the device is not connected to the internet',
         () async {
       // arrange
-      when(mockRemoteDataSource.getMovieRecommendations(tId))
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockRemoteDataSource.getMovieRecommendations(tId)).thenThrow(
+          const SocketException('Failed to connect to the networks'));
       // act
       final result = await repository.getMovieRecommendations(tId);
       // assert
       verify(mockRemoteDataSource.getMovieRecommendations(tId));
+
       expect(
           result,
           equals(const Left(
-              ConnectionFailure('Failed to connect to the network'))));
+              ConnectionFailure('Failed to connect to the networks'))));
     });
   });
 
@@ -337,13 +344,15 @@ void main() {
         'should return ConnectionFailure when device is not connected to the internet',
         () async {
       // arrange
-      when(mockRemoteDataSource.searchMovies(tQuery))
-          .thenThrow(const SocketException('Failed to connect to the network'));
+      when(mockRemoteDataSource.searchMovies(tQuery)).thenThrow(
+          const SocketException('Failed to connect to the networks'));
+
       // act
       final result = await repository.searchMovies(tQuery);
+
       // assert
       expect(result,
-          const Left(ConnectionFailure('Failed to connect to the network')));
+          const Left(ConnectionFailure('Failed to connect to the networks')));
     });
   });
 
