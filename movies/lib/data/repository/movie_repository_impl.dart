@@ -27,9 +27,9 @@ class MovieRepositoryImpl implements MovieRepository {
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the networks'));
     } on TlsException {
-      return const Left(SslFailure('Certificate unvalid'));
+      return const Left(SslFailure('The Certificate is unvalid'));
     }
   }
 
@@ -41,9 +41,9 @@ class MovieRepositoryImpl implements MovieRepository {
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the networks'));
     } on TlsException {
-      return const Left(SslFailure('Certificate unvalid'));
+      return const Left(SslFailure('The Certificate is unvalid'));
     }
   }
 
@@ -55,9 +55,9 @@ class MovieRepositoryImpl implements MovieRepository {
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the networks'));
     } on TlsException {
-      return const Left(SslFailure('Certificate unvalid'));
+      return const Left(SslFailure('The Certificate is unvalid'));
     }
   }
 
@@ -69,9 +69,9 @@ class MovieRepositoryImpl implements MovieRepository {
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the networks'));
     } on TlsException {
-      return const Left(SslFailure('Certificate unvalid'));
+      return const Left(SslFailure('The Certificate is unvalid'));
     }
   }
 
@@ -83,9 +83,9 @@ class MovieRepositoryImpl implements MovieRepository {
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the networks'));
     } on TlsException {
-      return const Left(SslFailure('Certificate unvalid'));
+      return const Left(SslFailure('The Certificate is unvalid'));
     }
   }
 
@@ -97,9 +97,9 @@ class MovieRepositoryImpl implements MovieRepository {
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the networks'));
     } on TlsException {
-      return const Left(SslFailure('Certificate unvalid'));
+      return const Left(SslFailure('The Certificate is unvalid'));
     }
   }
 
@@ -130,12 +130,14 @@ class MovieRepositoryImpl implements MovieRepository {
   @override
   Future<bool> isAddedToWatchlist(int id) async {
     final result = await localDataSource.getMovieById(id);
+
     return result != null;
   }
 
   @override
   Future<Either<Failure, List<Movie>>> getWatchlistMovies() async {
     final result = await localDataSource.getWatchlistMovies();
+
     return Right(result.map((data) => data.toEntity()).toList());
   }
 }
